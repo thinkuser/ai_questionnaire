@@ -144,8 +144,8 @@ export const QUESTIONS = [
       'אין דאטה',
       'לא ברור ROI',
       'אבטחת מידע',
-      'אחר',
     ],
+    otherEnabled: true,
   },
   {
     id: 12,

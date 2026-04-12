@@ -113,7 +113,7 @@ export default function MultiSelect({ options, value = [], onChange, maxSelect, 
               onChange={(e) => handleOtherTextChange(e.target.value)}
               placeholder="ציינו..."
               autoFocus
-              className="mt-2 w-full bg-[#150828] border border-white/20 rounded-xl px-4 py-3 text-white text-sm placeholder-white/45 outline-none focus:border-[#9747ff] transition-colors duration-200"
+              className="mt-2 w-full bg-[#150828] border border-white/20 rounded-xl px-4 py-3 text-white text-sm placeholder-white/65 outline-none focus:border-[#9747ff] transition-colors duration-200"
             />
           )}
         </div>

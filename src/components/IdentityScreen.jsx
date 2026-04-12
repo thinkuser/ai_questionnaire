@@ -28,7 +28,7 @@ export default function IdentityScreen({ direction, onNext, onBack, initialData 
   }
 
   const inputBase =
-    'w-full bg-[#150828] border border-white/20 rounded-xl px-4 py-3 text-white text-sm placeholder-white/45 outline-none focus:border-[#9747ff] transition-colors duration-200'
+    'w-full bg-[#150828] border border-white/20 rounded-xl px-4 py-3 text-white text-sm placeholder-white/65 outline-none focus:border-[#9747ff] transition-colors duration-200'
 
   return (
     <motion.div
@@ -46,7 +46,7 @@ export default function IdentityScreen({ direction, onNext, onBack, initialData 
         </div>
         <h1 className="text-3xl font-bold text-white mb-2">כמעט סיימנו!</h1>
         <p className="text-white/65 text-sm leading-relaxed">
-          רגע לפני הסוף — ספרו לנו קצת על עצמכם כדי שנוכל לחזור אליכם עם רעיונות מותאמים.
+          רגע לפני הסוף, ספרו לנו קצת על עצמכם כדי שנוכל לחזור אליכם עם רעיונות מותאמים.
         </p>
       </div>
 

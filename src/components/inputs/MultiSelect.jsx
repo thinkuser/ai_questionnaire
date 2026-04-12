@@ -50,8 +50,8 @@ export default function MultiSelect({ options, value = [], onChange, maxSelect, 
       selected
         ? 'bg-[#9747ff]/18 border-[#9747ff]/70 text-white'
         : disabled
-        ? 'border-white/6 text-white/20 cursor-not-allowed'
-        : 'bg-[#0e0420] border-white/10 text-white/75 hover:border-white/30 hover:bg-white/4 hover:text-white'
+        ? 'border-white/8 text-white/25 cursor-not-allowed'
+        : 'bg-[#150828] border-white/18 text-white/85 hover:border-white/35 hover:bg-white/4 hover:text-white'
     }`
 
   const checkBox = (selected) => (
@@ -113,7 +113,7 @@ export default function MultiSelect({ options, value = [], onChange, maxSelect, 
               onChange={(e) => handleOtherTextChange(e.target.value)}
               placeholder="ציינו..."
               autoFocus
-              className="mt-2 w-full bg-[#0e0420] border border-white/15 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none focus:border-[#9747ff] transition-colors duration-200"
+              className="mt-2 w-full bg-[#150828] border border-white/20 rounded-xl px-4 py-3 text-white text-sm placeholder-white/45 outline-none focus:border-[#9747ff] transition-colors duration-200"
             />
           )}
         </div>

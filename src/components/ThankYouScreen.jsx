@@ -3,7 +3,7 @@ import { QUESTIONS } from '../data/questions'
 
 const KEY_Q_IDS = [8, 13, 14, 16]
 
-export default function ThankYouScreen({ identity, answers }) {
+export default function ThankYouScreen({ identity, answers, onRestart }) {
   const keyQuestions = QUESTIONS.filter((q) => KEY_Q_IDS.includes(q.id))
 
   const formatAnswer = (val) => {
@@ -78,11 +78,13 @@ export default function ThankYouScreen({ identity, answers }) {
         </div>
       </div>
 
-      {/* Gradient accent line */}
-      <div
-        className="mt-8 h-px rounded-full opacity-40 mx-auto w-32"
-        style={{ background: 'linear-gradient(90deg, #9747ff, #19ffff)' }}
-      />
+      {/* Restart button */}
+      <button
+        onClick={onRestart}
+        className="mt-8 px-6 py-2.5 rounded-xl border border-white/15 text-white/50 hover:border-white/35 hover:text-white/80 transition-all duration-200 text-sm cursor-pointer"
+      >
+        התחל מחדש
+      </button>
     </motion.div>
   )
 }

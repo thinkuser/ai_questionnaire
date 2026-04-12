@@ -25,7 +25,9 @@ export default function QuestionScreen({
   onChange,
   onNext,
   onBack,
+  onSkip,
   isLast,
+  isFirst,
 }) {
   const canNext = canProceed(question, value)
 
@@ -85,9 +87,10 @@ export default function QuestionScreen({
       <Navigation
         onBack={onBack}
         onNext={onNext}
+        onSkip={onSkip}
         canNext={canNext}
         isLast={isLast}
-        showBack={true}
+        showBack={!isFirst}
       />
     </motion.div>
   )

@@ -11,7 +11,7 @@ const variants = {
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
-export default function IdentityScreen({ direction, onNext, initialData }) {
+export default function IdentityScreen({ direction, onNext, onBack, initialData }) {
   const [form, setForm] = useState(initialData || {})
 
   const set = (id, value) => setForm((prev) => ({ ...prev, [id]: value }))
@@ -28,7 +28,7 @@ export default function IdentityScreen({ direction, onNext, initialData }) {
   }
 
   const inputBase =
-    'w-full bg-[#0e0420] border border-white/12 rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none focus:border-[#9747ff] transition-colors duration-200'
+    'w-full bg-[#150828] border border-white/20 rounded-xl px-4 py-3 text-white text-sm placeholder-white/45 outline-none focus:border-[#9747ff] transition-colors duration-200'
 
   return (
     <motion.div
@@ -44,9 +44,9 @@ export default function IdentityScreen({ direction, onNext, initialData }) {
         <div className="text-xs font-semibold tracking-widest text-[#9747ff] uppercase mb-3">
           ThinkUser
         </div>
-        <h1 className="text-3xl font-bold text-white mb-2">סקר מוכנות AI</h1>
-        <p className="text-white/50 text-sm leading-relaxed">
-          לפני שנתחיל — ספרו לנו קצת על עצמכם. זה יעזור לנו להתאים את הניתוח לארגון שלכם.
+        <h1 className="text-3xl font-bold text-white mb-2">כמעט סיימנו!</h1>
+        <p className="text-white/65 text-sm leading-relaxed">
+          רגע לפני הסוף — ספרו לנו קצת על עצמכם כדי שנוכל לחזור אליכם עם רעיונות מותאמים.
         </p>
       </div>
 
@@ -54,7 +54,7 @@ export default function IdentityScreen({ direction, onNext, initialData }) {
       <div className="space-y-4">
         {IDENTITY_FIELDS.map((field) => (
           <div key={field.id}>
-            <label className="block text-xs font-medium text-white/50 mb-1.5">
+            <label className="block text-xs font-medium text-white/70 mb-1.5">
               {field.label}
               {field.required && <span className="text-[#ff47e2] mr-1">*</span>}
             </label>
@@ -87,9 +87,9 @@ export default function IdentityScreen({ direction, onNext, initialData }) {
                 className={
                   inputBase +
                   ' appearance-none cursor-pointer ' +
-                  (form[field.id] ? 'text-white' : 'text-white/25')
+                  (form[field.id] ? 'text-white' : 'text-white/45')
                 }
-                style={{ background: '#0e0420' }}
+                style={{ background: '#150828' }}
               >
                 <option value="" disabled>
                   בחרו תפקיד...
@@ -114,7 +114,7 @@ export default function IdentityScreen({ direction, onNext, initialData }) {
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer ${
                         selected
                           ? 'bg-[#9747ff]/25 border border-[#9747ff] text-white'
-                          : 'bg-[#0e0420] border border-white/12 text-white/50 hover:border-white/30 hover:text-white/80'
+                          : 'bg-[#150828] border border-white/20 text-white/65 hover:border-white/40 hover:text-white/90'
                       }`}
                     >
                       {opt}
@@ -127,7 +127,7 @@ export default function IdentityScreen({ direction, onNext, initialData }) {
         ))}
       </div>
 
-      <Navigation onNext={handleNext} canNext={!!isValid} showBack={false} />
+      <Navigation onNext={handleNext} onBack={onBack} canNext={!!isValid} showBack={true} />
     </motion.div>
   )
 }

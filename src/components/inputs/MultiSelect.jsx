@@ -51,7 +51,7 @@ export default function MultiSelect({ options, value = [], onChange, maxSelect, 
         ? 'bg-[#9747ff]/18 border-[#9747ff]/70 text-white'
         : disabled
         ? 'border-white/8 text-white/25 cursor-not-allowed'
-        : 'bg-[#150828] border-white/18 text-white/85 hover:border-white/35 hover:bg-white/4 hover:text-white'
+        : 'bg-[#150828] border-white/8 text-white/85 hover:border-white/25 hover:bg-white/4 hover:text-white'
     }`
 
   const checkBox = (selected) => (

@@ -11,7 +11,7 @@ export default function SingleSelect({ options, value, onChange }) {
             className={`w-full text-right px-4 py-3.5 rounded-xl border transition-all duration-150 cursor-pointer ${
               selected
                 ? 'bg-[#19ffff]/10 border-[#19ffff]/60 text-white'
-                : 'bg-[#150828] border-white/18 text-white/85 hover:border-white/35 hover:bg-white/4 hover:text-white'
+                : 'bg-[#150828] border-white/8 text-white/85 hover:border-white/25 hover:bg-white/4 hover:text-white'
             }`}
           >
             <div className="flex items-center gap-3">

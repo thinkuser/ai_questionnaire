@@ -6,6 +6,40 @@ import ThankYouScreen from './components/ThankYouScreen'
 import ProgressBar from './components/ProgressBar'
 import { QUESTIONS } from './data/questions'
 
+// Format a single answer value for Sheets (arrays → comma-separated string)
+function fmt(val) {
+  if (!val && val !== 0) return ''
+  if (Array.isArray(val)) return val.join(', ')
+  return String(val)
+}
+
+// Fire-and-forget POST to Google Apps Script web app
+async function submitToSheets(identityData, currentAnswers) {
+  const url = import.meta.env.VITE_SHEETS_WEBHOOK_URL
+  if (!url) return
+
+  const payload = {
+    timestamp: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' }),
+    identity: identityData,
+    answers: Object.fromEntries(
+      Object.entries(currentAnswers).map(([k, v]) => [k, fmt(v)])
+    ),
+  }
+
+  try {
+    // mode: no-cors is required for Google Apps Script — response is opaque but data is written
+    await fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload),
+    })
+    console.log('Submitted to Google Sheets')
+  } catch (err) {
+    console.warn('Sheets submission failed (non-blocking):', err)
+  }
+}
+
 export default function App() {
   const [screen, setScreen] = useState('question') // 'question' | 'identity' | 'thankyou'
   const [currentQ, setCurrentQ] = useState(0)
@@ -19,6 +53,7 @@ export default function App() {
     setDirection(1)
     const responses = { identity: identityData, answers }
     console.log('AI Readiness Survey — Responses:', JSON.stringify(responses, null, 2))
+    submitToSheets(identityData, answers) // fire and forget — non-blocking
     setScreen('thankyou')
   }
 

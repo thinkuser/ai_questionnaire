@@ -21,6 +21,7 @@ function canProceed(question, value) {
 export default function QuestionScreen({
   direction,
   question,
+  questionNumber,
   value,
   onChange,
   onNext,
@@ -44,7 +45,7 @@ export default function QuestionScreen({
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-4">
           <span className="text-xs font-semibold text-[#9747ff] tracking-wider">
-            שאלה {question.id}
+            שאלה {questionNumber}
           </span>
           {question.hint && (
             <span className="text-xs text-[#19ffff]/70 bg-[#19ffff]/8 border border-[#19ffff]/20 rounded-full px-2.5 py-0.5">

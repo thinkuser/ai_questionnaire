@@ -116,6 +116,7 @@ export default function App() {
               key={`q-${currentQ}`}
               direction={direction}
               question={QUESTIONS[currentQ]}
+              questionNumber={currentQ + 1}
               value={answers[QUESTIONS[currentQ].id]}
               onChange={(val) => handleAnswer(QUESTIONS[currentQ].id, val)}
               onNext={handleNext}

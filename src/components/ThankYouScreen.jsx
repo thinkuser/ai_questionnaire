@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { QUESTIONS } from '../data/questions'
 
-const KEY_Q_IDS = [8, 13, 14, 16]
+const KEY_Q_IDS = [8, 14, 16]
 
 export default function ThankYouScreen({ identity, answers, onRestart }) {
   const keyQuestions = QUESTIONS.filter((q) => KEY_Q_IDS.includes(q.id))
